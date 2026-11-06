@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunny Side — Brunch &amp; Coffee</title>
+  <meta name="description" content="Sunny Side — all-day brunch, specialty coffee and fresh pastries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENI NA VRHU ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo">Sunny<span>Side</span></a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+      <a href="#book" class="btn btn-small">Book a table</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO: pozadina je slika kafića ===== -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="kicker">Brunch &amp; Coffee · since 2026</p>
+      <h1>Good mornings<br>start <em>here.</em></h1>
+      <p class="hero-text">All-day brunch, specialty coffee and pastries baked every morning. Slow down, grab a seat by the window.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn">See the menu</a>
+        <a href="#book" class="btn btn-light">Book a table</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll down">↓</a>
+  </section>
+
+  <!-- ===== O NAMA: 3 kratke stavke ===== -->
+  <section class="about" id="about">
+    <div class="about-img zoom">
+      <img src="img/cappuccino.svg" alt="Cappuccino">
+    </div>
+    <div class="about-text">
+      <p class="kicker dark">Our story</p>
+      <h2>Small café, big breakfasts.</h2>
+      <p>We started Sunny Side with one simple idea: breakfast shouldn't end at 11. Everything on our menu is made fresh, with local eggs, sourdough from the bakery next door and beans roasted in small batches.</p>
+      <div class="features">
+        <div class="feature">
+          <strong>☕ Specialty coffee</strong>
+          <span>Single-origin beans, roasted weekly</span>
+        </div>
+        <div class="feature">
+          <strong>🥐 Baked daily</strong>
+          <span>Croissants out of the oven at 7:30</span>
+        </div>
+        <div class="feature">
+          <strong>🌿 Local produce</strong>
+          <span>Eggs, greens and fruit from nearby farms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENI: tabovi (Brunch / Coffee / Sweet) ===== -->
+  <section class="menu" id="menu">
+    <div class="section-head">
+      <p class="kicker dark">The menu</p>
+      <h2>What we're serving</h2>
+    </div>
+
+    <!-- Dugmad za tabove — JavaScript (script.js) mijenja koja je kategorija prikazana -->
+    <div class="tabs">
+      <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="brunch">Brunch</button>
+      <button class="tab" data-cat="coffee">Coffee</button>
+      <button class="tab" data-cat="sweet">Sweet</button>
+    </div>
+
+    <div class="menu-grid">
+      <!-- Svako jelo je jedna "dish" kartica. data-cat govori u koju kategoriju spada. -->
+      <article class="dish" data-cat="brunch">
+        <div class="dish-img zoom"><img src="img/avocado-toast.svg" alt="Avocado toast"></div>
+        <div class="dish-info">
+          <h3>Avocado Toast</h3>
+          <span class="price">€8.50</span>
+        </div>
+        <p>Sourdough, smashed avocado, poached egg, chili flakes.</p>
+      </article>
+
+      <article class="dish" data-cat="brunch">
+        <div class="dish-img zoom"><img src="img/eggs.svg" alt="Sunny side eggs"></div>
+        <div class="dish-info">
+          <h3>Sunny Side Eggs</h3>
+          <span class="price">€7.90</span>
+        </div>
+        <p>Two fried eggs on toasted brioche, herbs, cracked pepper.</p>
+        <span class="badge">House favourite</span>
+      </article>
+
+      <article class="dish" data-cat="sweet">
+        <div class="dish-img zoom"><img src="img/pancakes.svg" alt="Pancakes"></div>
+        <div class="dish-info">
+          <h3>Fluffy Pancakes</h3>
+          <span class="price">€7.50</span>
+        </div>
+        <p>Stack of three, maple syrup, butter, fresh berries.</p>
+      </article>
+
+      <article class="dish" data-cat="sweet">
+        <div class="dish-img zoom"><img src="img/smoothie-bowl.svg" alt="Smoothie bowl"></div>
+        <div class="dish-info">
+          <h3>Berry Smoothie Bowl</h3>
+          <span class="price">€6.90</span>
+        </div>
+        <p>Açaí and berries, banana, granola, kiwi.</p>
+      </article>
+
+      <article class="dish" data-cat="coffee">
+        <div class="dish-img zoom"><img src="img/latte.svg" alt="Latte"></div>
+        <div class="dish-info">
+          <h3>Flat White</h3>
+          <span class="price">€3.20</span>
+        </div>
+        <p>Double ristretto, silky steamed milk.</p>
+      </article>
+
+      <article class="dish" data-cat="sweet coffee">
+        <div class="dish-img zoom"><img src="img/croissant.svg" alt="Croissant"></div>
+        <div class="dish-info">
+          <h3>Butter Croissant</h3>
+          <span class="price">€2.80</span>
+        </div>
+        <p>Baked every morning. Perfect with any coffee.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== GALERIJA ===== -->
+  <section class="gallery" id="gallery">
+    <div class="section-head">
+      <p class="kicker dark">Gallery</p>
+      <h2>Inside Sunny Side</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item big zoom"><img src="img/interior.svg" alt="Café interior"><span>Our space</span></div>
+      <div class="g-item zoom"><img src="img/latte.svg" alt="Latte art"><span>Latte art</span></div>
+      <div class="g-item zoom"><img src="img/corner.svg" alt="Window corner"><span>Window seats</span></div>
+      <div class="g-item zoom"><img src="img/pancakes.svg" alt="Pancakes"><span>Weekend pancakes</span></div>
+      <div class="g-item zoom"><img src="img/cappuccino.svg" alt="Cappuccino"><span>Morning cappuccino</span></div>
+    </div>
+  </section>
+
+  <!-- ===== RADNO VRIJEME I LOKACIJA ===== -->
+  <section class="visit" id="visit">
+    <div class="visit-card">
+      <p class="kicker dark">Opening hours</p>
+      <h2>Come say hi</h2>
+      <ul class="hours">
+        <li><span>Monday – Friday</span><span>07:30 – 16:00</span></li>
+        <li><span>Saturday</span><span>08:00 – 17:00</span></li>
+        <li><span>Sunday</span><span>09:00 – 15:00</span></li>
+      </ul>
+      <p id="open-status" class="open-status"></p>
+    </div>
+    <div class="visit-card map">
+      <p class="kicker dark">Find us</p>
+      <h2>12 Sunny Street</h2>
+      <p>City centre, two minutes from the main square.</p>
+      <div class="fake-map">
+        <div class="road r1"></div>
+        <div class="road r2"></div>
+        <div class="road r3"></div>
+        <div class="pin">📍</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REZERVACIJA ===== -->
+  <section class="book" id="book">
+    <div class="book-box">
+      <div>
+        <p class="kicker">Reservations</p>
+        <h2>Book a table</h2>
+        <p>Weekends get busy. Save your spot and we'll have coffee ready.</p>
+      </div>
+      <!-- Forma — kad se pošalje, script.js prikaže poruku zahvalnosti -->
+      <form id="book-form">
+        <input type="text" name="name" placeholder="Your name" required>
+        <div class="row">
+          <input type="date" name="date" required>
+          <select name="guests" required>
+            <option value="">Guests</option>
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5+</option>
+          </select>
+        </div>
+        <input type="tel" name="phone" placeholder="Phone number" required>
+        <button type="submit" class="btn">Reserve</button>
+        <p id="book-msg" class="book-msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#top" class="logo">Sunny<span>Side</span></a>
+    <p>Demo project · designed &amp; built by <a href="../index.html">Igor Popadić</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

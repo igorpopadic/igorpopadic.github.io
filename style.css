@@ -353,6 +353,14 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
   overflow: hidden;
 }
 .p1 { background: linear-gradient(135deg, #f97316, #b91c1c); }
+/* pravi projekat: slika sajta koja se malo uveća na hover */
+.project-preview.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.project:hover .project-preview.shot img { transform: scale(1.08); }
 .p2 { background: linear-gradient(135deg, #ec4899, #7c3aed); }
 .p3 { background: linear-gradient(135deg, #22c55e, #0e7490); }
 
