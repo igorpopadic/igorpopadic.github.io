@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumen Dental Studio</title>
+  <meta name="description" content="Lumen Dental Studio — calm, modern dentistry. Clear prices and online booking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENI ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo">Lumen <em>dental</em></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#book">Booking</a>
+      <a href="#team">Team</a>
+      <a href="#clinic">Clinic</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#book" class="btn btn-small">Book appointment</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="pill-label"><span class="dot"></span> Accepting new patients</p>
+      <h1>Calm dentistry for people who <em>hate</em> the dentist.</h1>
+      <p class="lead">Gentle treatments, clear prices before we start, and no waiting room full of nerves. Your smile, without the stress.</p>
+      <div class="actions">
+        <a href="#book" class="btn">Book online</a>
+        <a href="tel:+000000000" class="btn btn-ghost">Call the clinic</a>
+      </div>
+      <ul class="trust">
+        <li><strong>15+</strong> years of experience</li>
+        <li><strong>Same-week</strong> appointments</li>
+        <li><strong>0%</strong> instalment plans</li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img"><img src="img/treatment-room.svg" alt="Treatment room"></div>
+      <div class="chip chip-1">✓ Painless check-up</div>
+      <div class="chip chip-2"><strong>€30</strong> first visit + X-ray</div>
+    </div>
+  </section>
+
+  <!-- ===== USLUGE I CIJENE ===== -->
+  <section class="services" id="services">
+    <div class="head">
+      <p class="eyebrow">Services &amp; prices</p>
+      <h2>Know the price <em>before</em> you sit down.</h2>
+    </div>
+
+    <!-- Filteri — JavaScript prikazuje samo izabranu kategoriju -->
+    <div class="filters" id="filters">
+      <button class="filter active" data-cat="all">All</button>
+      <button class="filter" data-cat="general">General</button>
+      <button class="filter" data-cat="cosmetic">Cosmetic</button>
+      <button class="filter" data-cat="implants">Implants</button>
+      <button class="filter" data-cat="ortho">Braces</button>
+    </div>
+
+    <!-- Lista usluga se pravi iz podataka u script.js -->
+    <div class="price-list" id="price-list"></div>
+    <p class="note">Prices are indicative. Your exact plan and price are confirmed at the first visit — no surprises.</p>
+  </section>
+
+  <!-- ===== ZAKAZIVANJE ===== -->
+  <section class="booking" id="book">
+    <div class="booking-box">
+      <div class="booking-intro">
+        <p class="eyebrow light">Online booking</p>
+        <h2>Book in under a minute.</h2>
+        <p>Pick a treatment, a day and a free time slot. We'll confirm by phone the same day.</p>
+        <ol class="steps-mini">
+          <li class="on" data-step="1">Treatment</li>
+          <li data-step="2">Day &amp; time</li>
+          <li data-step="3">Your details</li>
+        </ol>
+      </div>
+
+      <div class="booking-app">
+        <!-- KORAK 1 -->
+        <div class="step-panel active" data-panel="1">
+          <h3>What do you need?</h3>
+          <div class="choice-grid" id="treatment-choices"></div>
+        </div>
+
+        <!-- KORAK 2 -->
+        <div class="step-panel" data-panel="2">
+          <h3>Choose a day</h3>
+          <div class="days" id="days"></div>
+          <h3>Free times</h3>
+          <div class="slots" id="slots"><p class="muted">Pick a day first.</p></div>
+          <div class="panel-nav">
+            <button class="link-btn" data-back="1">← Back</button>
+          </div>
+        </div>
+
+        <!-- KORAK 3 -->
+        <div class="step-panel" data-panel="3">
+          <div class="summary" id="summary"></div>
+          <form id="book-form" class="book-form">
+            <input type="text" name="name" placeholder="Full name" required>
+            <input type="tel" name="phone" placeholder="Phone number" required>
+            <label class="check"><input type="checkbox" name="first"> This is my first visit</label>
+            <button type="submit" class="btn btn-full">Confirm appointment</button>
+          </form>
+          <div class="panel-nav">
+            <button class="link-btn" data-back="2">← Change time</button>
+          </div>
+        </div>
+
+        <!-- POTVRDA -->
+        <div class="step-panel" data-panel="done">
+          <div class="done">
+            <div class="done-icon">✓</div>
+            <h3>You're booked in!</h3>
+            <p id="done-text"></p>
+            <button class="btn btn-ghost" id="book-again">Book another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIM ===== -->
+  <section class="team" id="team">
+    <div class="head">
+      <p class="eyebrow">Our team</p>
+      <h2>The people behind your smile.</h2>
+    </div>
+    <div class="team-grid">
+      <article class="doc">
+        <div class="doc-photo d1"><span>JM</span></div>
+        <h3>Dr. Jelena M.</h3>
+        <p>Founder · Implants &amp; surgery</p>
+      </article>
+      <article class="doc">
+        <div class="doc-photo d2"><span>NP</span></div>
+        <h3>Dr. Nikola P.</h3>
+        <p>Orthodontics · Clear aligners</p>
+      </article>
+      <article class="doc">
+        <div class="doc-photo d3"><span>SV</span></div>
+        <h3>Dr. Sara V.</h3>
+        <p>Cosmetic dentistry · Whitening</p>
+      </article>
+      <article class="doc">
+        <div class="doc-photo d4"><span>MR</span></div>
+        <h3>Milica R.</h3>
+        <p>Dental hygienist</p>
+      </article>
+    </div>
+    <p class="note">Initials are placeholders for real team photos.</p>
+  </section>
+
+  <!-- ===== ORDINACIJA (slike) ===== -->
+  <section class="clinic" id="clinic">
+    <div class="head">
+      <p class="eyebrow">The clinic</p>
+      <h2>Bright, quiet, <em>a little bit plant-filled.</em></h2>
+    </div>
+    <div class="clinic-grid">
+      <figure class="cimg tall"><img src="img/reception.svg" alt="Reception"><figcaption>Reception</figcaption></figure>
+      <figure class="cimg"><img src="img/treatment-room.svg" alt="Treatment room"><figcaption>Treatment room</figcaption></figure>
+      <figure class="cimg"><img src="img/care.svg" alt="Home care"><figcaption>Home-care advice</figcaption></figure>
+    </div>
+    <p class="note">Demo project — illustrations are placeholders for the clinic's own photos.</p>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="head">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions patients ask us.</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Will it hurt?</summary>
+        <p>We use modern local anaesthetic and go at your pace. If you're nervous, tell us — we'll explain every step before we do it, and you can raise your hand to pause any time.</p>
+      </details>
+      <details>
+        <summary>Can I pay in instalments?</summary>
+        <p>Yes. Treatments over €300 can be split into up to 12 monthly payments with 0% interest.</p>
+      </details>
+      <details>
+        <summary>What if I have a toothache right now?</summary>
+        <p>Call us. We keep emergency slots open every day and will try to see you within 24 hours.</p>
+      </details>
+      <details>
+        <summary>Do you treat children?</summary>
+        <p>Yes, from age 3. First visits for kids are short and playful, so they get used to the chair.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== KONTAKT ===== -->
+  <section class="contact" id="contact">
+    <div class="contact-card">
+      <div>
+        <p class="eyebrow light">Visit us</p>
+        <h2>Lumen Dental Studio</h2>
+        <p class="addr">Garden Street 7, City Centre · Parking in the courtyard</p>
+        <div class="contact-btns">
+          <a href="tel:+000000000" class="btn btn-light">📞 Call</a>
+          <a href="https://wa.me/000000000" target="_blank" class="btn btn-ghost-light">💬 WhatsApp</a>
+        </div>
+      </div>
+      <dl class="hours">
+        <div><dt>Mon – Fri</dt><dd>08:00 – 20:00</dd></div>
+        <div><dt>Saturday</dt><dd>09:00 – 14:00</dd></div>
+        <div><dt>Sunday</dt><dd>Closed · emergencies by phone</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    <span class="logo">Lumen <em>dental</em></span>
+    <span>Demo project · prices, team and contacts are examples · designed &amp; built by <a href="../index.html">Igor Popadić</a></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
