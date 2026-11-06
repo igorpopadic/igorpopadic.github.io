@@ -391,6 +391,13 @@ h3 { font-size: 1.1rem; margin-bottom: 8px; }
 }
 .mini b.short { width: 40%; background: #bbb; }
 
+.card p.note {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
 .soon {
   display: inline-block;
   margin-top: 12px;
