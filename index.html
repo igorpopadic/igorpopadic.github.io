@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igor Popadić – Web Developer</title>
+  <meta name="description" content="Igor Popadić – web developer building modern, fast websites for small businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== POZADINA: obojene "svjetlosti" i providne sjenke sajtova =====
+       Ovo je samo ukras, ne utiče na sadržaj. Ako ti ne treba, obriši cijeli <div class="bg">. -->
+  <div class="bg" aria-hidden="true">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
+
+    <div class="ghost w1"><i></i><b></b><b class="short"></b><span></span><span></span><span></span></div>
+    <div class="ghost w2"><i></i><b></b><b class="short"></b><span></span><span></span></div>
+    <div class="ghost w3"><i></i><b></b><b class="short"></b><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- ===== NAVIGACIJA (meni na vrhu) ===== -->
+  <header class="nav">
+   <div class="nav-inner">
+    <a href="#top" class="logo">IP<span>.</span></a>
+
+    <!-- Sredina menija: natpis "portfolio" programerskim slovima -->
+    <div class="nav-status">
+      <span class="prompt">~/</span><span>portfolio</span>
+    </div>
+
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="btn btn-small">Contact</a>
+    </nav>
+   </div>
+  </header>
+
+  <!-- ===== HERO (prvo što posjetilac vidi): lijevo tekst, desno "editor" ===== -->
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="tag"><span class="dot"></span> Available for new projects</p>
+      <h1 class="hello">Hi, I'm <strong>Igor Popadić</strong> 👋</h1>
+      <p class="subtitle">
+        Web developer &amp; student at the Faculty of Technical Sciences, Novi Sad.
+        I build modern, fast websites for small businesses.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Get in touch</a>
+        <a href="#projects" class="btn btn-outline">See my work</a>
+      </div>
+    </div>
+
+    <!-- Prozor koji izgleda kao VS Code -->
+    <div class="editor" aria-hidden="true">
+      <div class="editor-bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="file">index.html</span>
+      </div>
+<pre><code><span class="ln">1</span><span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"hero"</span><span class="t">&gt;</span>
+<span class="ln">2</span>  <span class="t">&lt;h1&gt;</span>Your business, online<span class="t">&lt;/h1&gt;</span>
+<span class="ln">3</span>  <span class="t">&lt;p&gt;</span>Fast. Clean. Mobile-ready.<span class="t">&lt;/p&gt;</span>
+<span class="ln">4</span>  <span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"#contact"</span><span class="t">&gt;</span>Let's talk<span class="t">&lt;/a&gt;</span>
+<span class="ln">5</span><span class="t">&lt;/section&gt;</span>
+<span class="ln">6</span>
+<span class="ln">7</span><span class="c">// launched in days, not months</span>
+<span class="ln">8</span><span class="k">const</span> site = build(<span class="s">"your idea"</span>);
+<span class="ln">9</span>site.<span class="f">deploy</span>(); <span class="cursor">▌</span></code></pre>
+    </div>
+  </section>
+
+  <!-- ===== TEHNOLOGIJE (traka s alatima koje koristiš) ===== -->
+  <div class="stack">
+    <span>HTML5</span>
+    <span>CSS3</span>
+    <span>JavaScript</span>
+    <span>Python</span>
+    <span>Git &amp; GitHub</span>
+    <span>Responsive design</span>
+  </div>
+
+  <!-- ===== USLUGE (šta nudiš) ===== -->
+  <section id="services">
+    <div class="section-head">
+      <p class="eyebrow">// services</p>
+      <h2>What I can do for you</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="icon">01</div>
+        <h3>Landing pages</h3>
+        <p>A clean one-page website that presents your business and turns visitors into customers.</p>
+      </div>
+      <div class="card">
+        <div class="icon">02</div>
+        <h3>Business websites</h3>
+        <p>Restaurants, salons, gyms, shops – menu, prices, gallery, location and contact in one place.</p>
+      </div>
+      <div class="card">
+        <div class="icon">03</div>
+        <h3>Mobile-first design</h3>
+        <p>Every site looks great on phones, tablets and computers – where your customers actually are.</p>
+      </div>
+      <div class="card">
+        <div class="icon">04</div>
+        <h3>Fixes &amp; updates</h3>
+        <p>Already have a website? I can update content, fix layout problems or give it a fresh look.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KAKO RADIŠ (proces u 4 koraka) ===== -->
+  <section id="process">
+    <div class="section-head">
+      <p class="eyebrow">// process</p>
+      <h2>How we'll work together</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <h3>Talk</h3>
+        <p>You tell me about your business and what the site needs to do.</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <h3>Design</h3>
+        <p>I show you a first version so you can see the look before anything is final.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <h3>Build</h3>
+        <p>I build the full site and adjust it until you're happy with every page.</p>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <h3>Launch</h3>
+        <p>Your site goes live with its own link, ready to share with customers.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== PROJEKTI (ovdje dodaješ svoje radove) ===== -->
+  <section id="projects">
+    <div class="section-head">
+      <p class="eyebrow">// projects</p>
+      <h2>Recent work</h2>
+    </div>
+    <div class="grid grid-3">
+      <!-- Kad napravimo novi sajt, kopiraš jedan ovakav "card" blok i promijeniš tekst i link -->
+      <div class="card project">
+        <div class="project-preview p1">
+          <div class="mini"><i></i><b></b><b class="short"></b></div>
+        </div>
+        <h3>Restaurant website</h3>
+        <p>Menu, opening hours, gallery and table reservations.</p>
+        <span class="soon">Coming soon</span>
+      </div>
+      <div class="card project">
+        <div class="project-preview p2">
+          <div class="mini"><i></i><b></b><b class="short"></b></div>
+        </div>
+        <h3>Salon website</h3>
+        <p>Services with prices, team, and online booking contact.</p>
+        <span class="soon">Coming soon</span>
+      </div>
+      <div class="card project">
+        <div class="project-preview p3">
+          <div class="mini"><i></i><b></b><b class="short"></b></div>
+        </div>
+        <h3>Gym website</h3>
+        <p>Memberships, class schedule and trainer profiles.</p>
+        <span class="soon">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KONTAKT ===== -->
+  <section id="contact">
+    <div class="contact-box">
+      <div>
+        <p class="eyebrow">// contact</p>
+        <h2>Let's build your website</h2>
+        <p>Tell me about your business and I'll get back to you within 24 hours.</p>
+      </div>
+      <a href="mailto:igor.popadic656@gmail.com" class="btn">igor.popadic656@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="year"></span> Igor Popadić</span>
+    <span>Novi Sad, Serbia</span>
+  </footer>
+
+  <script>
+    // Automatski upisuje trenutnu godinu u footer
+    document.getElementById("year").textContent = new Date().getFullYear();  </script>
+</body>
+</html>
