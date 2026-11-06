@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORMA — Strength &amp; Fitness Club</title>
+  <meta name="description" content="FORMA — a calm, well-equipped gym with personal coaches. Day passes and memberships.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== MENI ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo">FORMA<span>.</span></a>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#prices">Prices</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#faq">FAQ</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#visit" class="btn btn-dark btn-small">Book a free visit</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="eyebrow">Strength &amp; Fitness Club</p>
+      <h1>Train in a place you <span class="hl">actually want</span> to be.</h1>
+      <p class="lead">Quality equipment, daylight, clean air and coaches who know your name. No crowds, no pressure — just good training.</p>
+      <div class="hero-actions">
+        <a href="#prices" class="btn btn-dark">See prices</a>
+        <a href="#gallery" class="link-arrow">Look inside <span>→</span></a>
+      </div>
+      <p class="from-price">Memberships from <strong>€25/month</strong> · Day pass <strong>€8</strong> · No registration fee</p>
+      <ul class="facts">
+        <li><strong>06–23h</strong><span>open every day</span></li>
+        <li><strong>1,200 m²</strong><span>training space</span></li>
+        <li><strong>6</strong><span>personal coaches</span></li>
+      </ul>
+    </div>
+    <div class="hero-img">
+      <img src="img/main-floor.svg" alt="Main training floor">
+      <div class="floating-card">
+        <span class="dot" id="status-dot"></span>
+        <div>
+          <strong id="status-text">Open now</strong>
+          <small>Today 06:00 – 23:00</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALERIJA (klik otvara veću sliku) ===== -->
+  <section class="gallery" id="gallery">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Gallery</p>
+        <h2>Take a look inside</h2>
+      </div>
+      <p class="muted">Click any photo to open it.</p>
+    </div>
+    <div class="gallery-grid">
+      <!-- data-caption je tekst koji piše ispod velike slike -->
+      <figure class="g big" data-caption="Main floor — 12 racks and platforms">
+        <img src="img/main-floor.svg" alt="Main floor"><figcaption>Main floor</figcaption>
+      </figure>
+      <figure class="g" data-caption="Dumbbells from 2 to 50 kg">
+        <img src="img/dumbbells.svg" alt="Dumbbells"><figcaption>Free weights</figcaption>
+      </figure>
+      <figure class="g" data-caption="Cardio zone with a view">
+        <img src="img/cardio.svg" alt="Cardio zone"><figcaption>Cardio</figcaption>
+      </figure>
+      <figure class="g" data-caption="Boxing corner — bags, gloves and wraps">
+        <img src="img/boxing.svg" alt="Boxing area"><figcaption>Boxing</figcaption>
+      </figure>
+      <figure class="g" data-caption="Functional zone — kettlebells, boxes, rings">
+        <img src="img/functional.svg" alt="Functional zone"><figcaption>Functional</figcaption>
+      </figure>
+      <figure class="g wide" data-caption="Finnish sauna — included in yearly membership">
+        <img src="img/sauna.svg" alt="Sauna"><figcaption>Sauna</figcaption>
+      </figure>
+    </div>
+    <p class="note">Demo project — illustrations are placeholders for the gym's own photos.</p>
+  </section>
+
+  <!-- ===== CIJENE ===== -->
+  <section class="prices" id="prices">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Prices</p>
+        <h2>Simple, honest pricing</h2>
+      </div>
+      <!-- Prekidač za studentske cijene -->
+      <label class="toggle">
+        <input type="checkbox" id="student">
+        <span class="track"><span class="thumb"></span></span>
+        Student prices <small>−20%</small>
+      </label>
+    </div>
+
+    <div class="price-grid">
+      <!-- data-price = puna cijena; JavaScript računa studentsku -->
+      <article class="price-card">
+        <h3>Day pass</h3>
+        <p class="price"><span class="amount" data-price="8">€8</span><span class="per">/ day</span></p>
+        <p class="desc">Just visiting or want to try us out.</p>
+        <ul>
+          <li>Full gym access</li>
+          <li>Locker &amp; showers</li>
+        </ul>
+        <a href="#visit" class="btn btn-line">Get a day pass</a>
+      </article>
+
+      <article class="price-card">
+        <h3>Monthly</h3>
+        <p class="price"><span class="amount" data-price="35">€35</span><span class="per">/ month</span></p>
+        <p class="desc">Flexible. Cancel any time.</p>
+        <ul>
+          <li>Unlimited access</li>
+          <li>Locker &amp; showers</li>
+          <li>Intro session with a coach</li>
+        </ul>
+        <a href="#visit" class="btn btn-line">Choose monthly</a>
+      </article>
+
+      <article class="price-card featured">
+        <span class="tag">Most popular</span>
+        <h3>3 months</h3>
+        <p class="price"><span class="amount" data-price="90">€90</span><span class="per">/ 3 months</span></p>
+        <p class="desc"><span class="permonth" data-price="90" data-months="3">€30</span> per month — save 14%.</p>
+        <ul>
+          <li>Unlimited access</li>
+          <li>Locker &amp; showers</li>
+          <li>Training plan from a coach</li>
+        </ul>
+        <a href="#visit" class="btn btn-light">Choose 3 months</a>
+      </article>
+
+      <article class="price-card">
+        <h3>Yearly</h3>
+        <p class="price"><span class="amount" data-price="300">€300</span><span class="per">/ year</span></p>
+        <p class="desc"><span class="permonth" data-price="300" data-months="12">€25</span> per month — save 29%.</p>
+        <ul>
+          <li>Unlimited access</li>
+          <li>Sauna included</li>
+          <li>4 coach sessions per year</li>
+        </ul>
+        <a href="#visit" class="btn btn-line">Choose yearly</a>
+      </article>
+    </div>
+    <p class="note">Personal training: €20 per session · Packages of 10 sessions: €170</p>
+  </section>
+
+  <!-- ===== ČESTA PITANJA (klik otvara odgovor) ===== -->
+  <section class="faq" id="faq">
+    <div class="head">
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h2>Before you come in</h2>
+      </div>
+      <p class="muted">Still not sure? Call us — we're happy to help.</p>
+    </div>
+    <div class="faq-list">
+      <!-- <details> je HTML element koji se sam otvara i zatvara na klik -->
+      <details>
+        <summary>Is there a registration fee?</summary>
+        <p>No. You only pay for the plan you choose — no sign-up or card fees.</p>
+      </details>
+      <details>
+        <summary>Can I cancel my membership?</summary>
+        <p>Monthly plans can be cancelled any time before the next payment. 3-month and yearly plans can be paused for up to 30 days (injury, travel, exams).</p>
+      </details>
+      <details>
+        <summary>Is there parking?</summary>
+        <p>Yes — free parking for members right in front of the gym, plus bike racks at the entrance.</p>
+      </details>
+      <details>
+        <summary>What do I need for the student discount?</summary>
+        <p>Just a valid student ID. Show it at the reception when you sign up and the 20% discount applies to every plan.</p>
+      </details>
+      <details>
+        <summary>I've never trained before. Is that okay?</summary>
+        <p>Absolutely. Every new member gets an intro session with a coach who shows you the equipment and builds a simple plan to start with.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== TRENERI (klik otvara profil s terminima) ===== -->
+  <section class="coaches" id="coaches">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Coaches</p>
+        <h2>Meet the team</h2>
+      </div>
+      <p class="muted">Click a coach to see when they train and book a session.</p>
+    </div>
+    <div class="coach-grid" id="coach-grid"></div>
+    <p class="note">Coach initials are placeholders for real photos. Phone, WhatsApp and map are demo placeholders too.</p>
+  </section>
+
+  <!-- ===== POSJETA / KONTAKT ===== -->
+  <section class="visit" id="visit">
+    <div class="visit-info">
+      <p class="eyebrow">Visit</p>
+      <h2>Come in for a free tour</h2>
+      <p class="muted">See the space, meet a coach and try a session — no commitment.</p>
+      <dl class="hours">
+        <div><dt>Monday – Friday</dt><dd>06:00 – 23:00</dd></div>
+        <div><dt>Saturday</dt><dd>08:00 – 22:00</dd></div>
+        <div><dt>Sunday</dt><dd>09:00 – 20:00</dd></div>
+      </dl>
+      <p class="address">Riverside 18, City Centre · Free parking</p>
+
+      <!-- Brzi kontakt: na telefonu "Call" odmah zove, "WhatsApp" otvara chat -->
+      <div class="quick-contact">
+        <a href="tel:+000000000" class="qc">📞 Call us</a>
+        <a href="https://wa.me/000000000" target="_blank" class="qc">💬 WhatsApp</a>
+        <a href="https://instagram.com/" target="_blank" class="qc">📷 Instagram</a>
+      </div>
+
+      <!-- Mala mapa (ilustracija) — za pravi sajt ovdje ide Google Maps -->
+      <div class="mini-map">
+        <span class="road r1"></span><span class="road r2"></span><span class="road r3"></span>
+        <span class="river"></span>
+        <span class="pin">FORMA</span>
+      </div>
+    </div>
+    <form class="visit-form" id="visit-form">
+      <label>Name<input type="text" name="name" required></label>
+      <label>Phone<input type="tel" name="phone" required></label>
+      <label>I'm interested in
+        <select name="interest">
+          <option>Day pass</option>
+          <option>Monthly</option>
+          <option selected>3 months</option>
+          <option>Yearly</option>
+          <option>Personal training</option>
+        </select>
+      </label>
+      <button type="submit" class="btn btn-dark">Book my free visit</button>
+      <p class="form-msg" id="form-msg"></p>
+    </form>
+  </section>
+
+  <footer>
+    <span class="logo">FORMA<span>.</span></span>
+    <span>Demo project · designed &amp; built by <a href="../index.html">Igor Popadić</a></span>
+  </footer>
+
+  <!-- ===== VELIKI PRIKAZ SLIKE (lightbox) ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+    <button class="lb-arrow prev" id="lb-prev" aria-label="Previous">←</button>
+    <figure>
+      <img id="lb-img" src="" alt="">
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button class="lb-arrow next" id="lb-next" aria-label="Next">→</button>
+  </div>
+
+  <!-- ===== PROFIL TRENERA (modal) ===== -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="lb-close dark" id="modal-close" aria-label="Close">×</button>
+      <div class="modal-photo" id="m-photo"></div>
+      <div class="modal-body">
+        <p class="eyebrow" id="m-role"></p>
+        <h3 id="m-name"></h3>
+        <p class="muted" id="m-bio"></p>
+        <h4>Training times</h4>
+        <ul class="times" id="m-times"></ul>
+        <a href="#visit" class="btn btn-dark" id="m-book">Book a session</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
