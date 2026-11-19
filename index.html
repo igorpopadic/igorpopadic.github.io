@@ -3,206 +3,515 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Igor Popadić – Web Developer</title>
-  <meta name="description" content="Igor Popadić – web developer building modern, fast websites for small businesses.">
+  <title>Igor Popadić – Websites for small businesses</title>
+  <meta name="description" content="Igor Popadić – web developer from Novi Sad. Modern, fast, mobile-ready websites for cafés, gyms, clinics, rent-a-car, salons and other small businesses.">
+  <meta name="theme-color" content="#f5f4ef">
+
+  <!-- Ikonica u tabu pretraživača -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Slika i tekst kad neko pošalje link (Viber, WhatsApp, Instagram, Facebook...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://igorpopadic.com/">
+  <meta property="og:site_name" content="Igor Popadić">
+  <meta property="og:title" content="Igor Popadić – Websites for small businesses">
+  <meta property="og:description" content="Modern, fast, mobile-ready websites for cafés, gyms, clinics, rent-a-car and other small businesses.">
+  <meta property="og:image" content="https://igorpopadic.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="IP logo – Igor Popadić, web developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Igor Popadić – Websites for small businesses">
+  <meta name="twitter:description" content="Modern, fast, mobile-ready websites for small businesses.">
+  <meta name="twitter:image" content="https://igorpopadic.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="intro-on">
 
-  <!-- ===== POZADINA: obojene "svjetlosti" i providne sjenke sajtova =====
-       Ovo je samo ukras, ne utiče na sadržaj. Ako ti ne treba, obriši cijeli <div class="bg">. -->
-  <div class="bg" aria-hidden="true">
-    <div class="glow g1"></div>
-    <div class="glow g2"></div>
-    <div class="glow g3"></div>
+  <!-- ===================== UVOD: neon IP logo na početku =====================
+       Prikazuje se kratko kad neko prvi put otvori sajt, pa se "podigne" kao zavjesa.
+       Ako ga ne želiš, obriši cijeli <div class="intro"> i class="intro-on" sa <body>. -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-grid"></div>
+    <div class="intro-glow"></div>
+    <div class="intro-mark"><span>IP</span></div>
+    <p class="intro-name">Igor Popadić <em>— web developer</em></p>
+  </div>
+  <script>
+    (function () {
+      var intro = document.getElementById("intro");
+      var seen = false;
+      try { seen = sessionStorage.getItem("introSeen") === "1"; sessionStorage.setItem("introSeen", "1"); } catch (e) {}
+      var fast = seen || matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (fast) { intro.remove(); document.body.classList.remove("intro-on"); return; }
+      setTimeout(function () { intro.classList.add("done"); document.body.classList.remove("intro-on"); }, 1900);
+      setTimeout(function () { intro.remove(); }, 3000);
+    })();
+  </script>
 
-    <div class="ghost w1"><i></i><b></b><b class="short"></b><span></span><span></span><span></span></div>
-    <div class="ghost w2"><i></i><b></b><b class="short"></b><span></span><span></span></div>
-    <div class="ghost w3"><i></i><b></b><b class="short"></b><span></span><span></span><span></span></div>
+  <!-- Traka na vrhu koja pokazuje koliko si skrolovao -->
+  <div class="progress" id="progress"></div>
+
+  <!-- Pozadina koja stalno lagano "živi" iza cijelog sajta (samo ukras) -->
+  <div class="aurora" aria-hidden="true">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="orb o4"></div>
+    <div class="dots-bg"></div>
   </div>
 
-  <!-- ===== NAVIGACIJA (meni na vrhu) ===== -->
-  <header class="nav">
-   <div class="nav-inner">
-    <a href="#top" class="logo">IP<span>.</span></a>
+  <!-- Blagi "zrnasti" efekat preko cijelog sajta (samo ukras) -->
+  <div class="grain" aria-hidden="true"></div>
 
-    <!-- Sredina menija: natpis "portfolio" programerskim slovima -->
-    <div class="nav-status">
-      <span class="prompt">~/</span><span>portfolio</span>
+  <!-- ===================== NAVIGACIJA (plutajuća "pilula") ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav-pill">
+      <a href="#top" class="logo" aria-label="Igor Popadić – home">
+        <span class="logo-mark">IP</span>
+        <span class="logo-text">Igor Popadić</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-dark btn-sm nav-cta">Start a project</a>
+
+      <!-- Dugme za meni na telefonu -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span>
+      </button>
     </div>
-
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact" class="btn btn-small">Contact</a>
-    </nav>
-   </div>
   </header>
 
-  <!-- ===== HERO (prvo što posjetilac vidi): lijevo tekst, desno "editor" ===== -->
-  <section class="hero" id="top">
-    <div class="hero-text">
-      <p class="tag"><span class="dot"></span> Available for new projects</p>
-      <h1 class="hello">Hi, I'm <strong>Igor Popadić</strong> 👋</h1>
-      <p class="subtitle">
-        Web developer &amp; student at the Faculty of Technical Sciences, Novi Sad.
-        I build modern, fast websites for small businesses.
-      </p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn">Get in touch</a>
-        <a href="#projects" class="btn btn-outline">See my work</a>
-      </div>
+  <!-- ===================== MENI NA TELEFONU ===================== -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mm-glow" aria-hidden="true"></div>
+    <p class="mm-label">Menu</p>
+    <nav class="mm-links">
+      <a href="#services"><span>01</span>Services</a>
+      <a href="#industries"><span>02</span>Industries</a>
+      <a href="#process"><span>03</span>Process</a>
+      <a href="#faq"><span>04</span>FAQ</a>
+      <a href="#contact"><span>05</span>Contact</a>
+    </nav>
+    <div class="mm-bottom">
+      <p class="badge badge-dark"><span class="pulse"></span> Available for new projects</p>
+      <a href="#contact" class="btn btn-accent btn-block">Start a project <span class="arrow">→</span></a>
+      <a href="mailto:igor.popadic656@gmail.com" class="mm-mail">igor.popadic656@gmail.com</a>
     </div>
-
-    <!-- Prozor koji izgleda kao VS Code -->
-    <div class="editor" aria-hidden="true">
-      <div class="editor-bar">
-        <span class="dots"><i></i><i></i><i></i></span>
-        <span class="file">index.html</span>
-      </div>
-<pre><code><span class="ln">1</span><span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"hero"</span><span class="t">&gt;</span>
-<span class="ln">2</span>  <span class="t">&lt;h1&gt;</span>Your business, online<span class="t">&lt;/h1&gt;</span>
-<span class="ln">3</span>  <span class="t">&lt;p&gt;</span>Fast. Clean. Mobile-ready.<span class="t">&lt;/p&gt;</span>
-<span class="ln">4</span>  <span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"#contact"</span><span class="t">&gt;</span>Let's talk<span class="t">&lt;/a&gt;</span>
-<span class="ln">5</span><span class="t">&lt;/section&gt;</span>
-<span class="ln">6</span>
-<span class="ln">7</span><span class="c">// launched in days, not months</span>
-<span class="ln">8</span><span class="k">const</span> site = build(<span class="s">"your idea"</span>);
-<span class="ln">9</span>site.<span class="f">deploy</span>(); <span class="cursor">▌</span></code></pre>
-    </div>
-  </section>
-
-  <!-- ===== TEHNOLOGIJE (traka s alatima koje koristiš) ===== -->
-  <div class="stack">
-    <span>HTML5</span>
-    <span>CSS3</span>
-    <span>JavaScript</span>
-    <span>Python</span>
-    <span>Git &amp; GitHub</span>
-    <span>Responsive design</span>
   </div>
 
-  <!-- ===== USLUGE (šta nudiš) ===== -->
-  <section id="services">
-    <div class="section-head">
-      <p class="eyebrow">// services</p>
-      <h2>What I can do for you</h2>
-    </div>
-    <div class="grid grid-4">
-      <div class="card">
-        <div class="icon">01</div>
-        <h3>Landing pages</h3>
-        <p>A clean one-page website that presents your business and turns visitors into customers.</p>
-      </div>
-      <div class="card">
-        <div class="icon">02</div>
-        <h3>Business websites</h3>
-        <p>Restaurants, salons, gyms, shops – menu, prices, gallery, location and contact in one place.</p>
-      </div>
-      <div class="card">
-        <div class="icon">03</div>
-        <h3>Mobile-first design</h3>
-        <p>Every site looks great on phones, tablets and computers – where your customers actually are.</p>
-      </div>
-      <div class="card">
-        <div class="icon">04</div>
-        <h3>Fixes &amp; updates</h3>
-        <p>Already have a website? I can update content, fix layout problems or give it a fresh look.</p>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <!-- ===== KAKO RADIŠ (proces u 4 koraka) ===== -->
-  <section id="process">
-    <div class="section-head">
-      <p class="eyebrow">// process</p>
-      <h2>How we'll work together</h2>
-    </div>
-    <ol class="steps">
-      <li>
-        <span class="step-num">1</span>
-        <h3>Talk</h3>
-        <p>You tell me about your business and what the site needs to do.</p>
-      </li>
-      <li>
-        <span class="step-num">2</span>
-        <h3>Design</h3>
-        <p>I show you a first version so you can see the look before anything is final.</p>
-      </li>
-      <li>
-        <span class="step-num">3</span>
-        <h3>Build</h3>
-        <p>I build the full site and adjust it until you're happy with every page.</p>
-      </li>
-      <li>
-        <span class="step-num">4</span>
-        <h3>Launch</h3>
-        <p>Your site goes live with its own link, ready to share with customers.</p>
-      </li>
-    </ol>
-  </section>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-lines"></div>
+      </div>
 
-  <!-- ===== PROJEKTI (ovdje dodaješ svoje radove) ===== -->
-  <section id="projects">
-    <div class="section-head">
-      <p class="eyebrow">// projects</p>
-      <h2>Recent work</h2>
-    </div>
-    <div class="grid grid-3">
-      <!-- Kad napravimo novi sajt, kopiraš jedan ovakav "card" blok i promijeniš tekst i link -->
-      <a class="card project" href="cafe/index.html" target="_blank">
-        <div class="project-preview shot">
-          <img src="cafe/img/interior.svg" alt="Sunny Side café website">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="badge"><span class="pulse"></span> Available for new projects</p>
+
+          <h1 class="split">
+            <span class="w">Websites</span> <span class="w">that</span> <span class="w">make</span>
+            <span class="w">your</span> <span class="w">business</span>
+            <em class="w gradient-text">look its best.</em>
+          </h1>
+
+          <p class="lead">
+            I'm Igor, a web developer from Novi Sad. I build clean, fast websites for
+            cafés, gyms, clinics, rent-a-car and other small businesses, so customers
+            can find you, trust you and contact you in one tap.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-accent btn-shine">Get a free quote <span class="arrow">→</span></a>
+            <a href="#services" class="btn btn-ghost">What I do</a>
+          </div>
+
+          <ul class="hero-points">
+            <li><span class="check">✓</span> Looks great on every phone</li>
+            <li><span class="check">✓</span> Reply within 24 hours</li>
+            <li><span class="check">✓</span> See the design before paying</li>
+          </ul>
         </div>
-        <h3>Sunny Side — Brunch café</h3>
-        <p>Menu with categories, gallery, opening hours and table reservations.</p>
-        <p class="note">Demo project – illustrations are placeholders for the client's own photos.</p>
-        <span class="soon">View site →</span>
-      </a>
-      <a class="card project" href="dental/index.html" target="_blank">
-        <div class="project-preview shot">
-          <img src="dental/img/reception.svg" alt="Lumen Dental Studio website">
-        </div>
-        <h3>Lumen — Dental studio</h3>
-        <p>Price list with categories and a 3-step online booking: treatment, day and free time slot.</p>
-        <p class="note">Demo project – illustrations are placeholders for the client's own photos.</p>
-        <span class="soon">View site →</span>
-      </a>
-      <a class="card project" href="gym/index.html" target="_blank">
-        <div class="project-preview shot">
-          <img src="gym/img/main-floor.svg" alt="FORMA gym website">
-        </div>
-        <h3>FORMA — Fitness club</h3>
-        <p>Photo gallery, clear pricing with student discount and coach profiles with training times.</p>
-        <p class="note">Demo project – illustrations are placeholders for the client's own photos.</p>
-        <span class="soon">View site →</span>
-      </a>
-    </div>
-  </section>
 
-  <!-- ===== KONTAKT ===== -->
-  <section id="contact">
-    <div class="contact-box">
-      <div>
-        <p class="eyebrow">// contact</p>
-        <h2>Let's build your website</h2>
-        <p>Tell me about your business and I'll get back to you within 24 hours.</p>
+        <!-- Desno: ilustracija sajta na laptopu i telefonu (napravljena u CSS-u) -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="url">🔒 yourbusiness.com</span>
+            </div>
+            <div class="site">
+              <div class="site-nav"><span class="s-logo"></span><span class="s-links"><i></i><i></i><i></i></span><span class="s-btn"></span></div>
+              <div class="site-hero">
+                <div class="site-copy">
+                  <span class="s-line w80"></span>
+                  <span class="s-line w60"></span>
+                  <span class="s-line thin w70"></span>
+                  <span class="s-line thin w50"></span>
+                  <span class="s-cta"></span>
+                </div>
+                <div class="site-img"></div>
+              </div>
+              <div class="site-cards"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="p-img"></div>
+              <span class="s-line w80"></span>
+              <span class="s-line thin w60"></span>
+              <span class="p-btn">Call now</span>
+              <span class="p-btn p-btn-2">Book online</span>
+              <div class="p-map"><span>📍</span><i></i></div>
+            </div>
+          </div>
+
+          <div class="float-card fc-1">
+            <span class="fc-icon">📩</span>
+            <div><strong>New inquiry</strong><small>from your website · now</small></div>
+          </div>
+          <div class="float-card fc-2">
+            <span class="fc-icon">⚡</span>
+            <div><strong>Loads in a blink</strong><small>on any phone</small></div>
+          </div>
+        </div>
       </div>
-      <a href="mailto:igor.popadic656@gmail.com" class="btn">igor.popadic656@gmail.com</a>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <span>© <span id="year"></span> Igor Popadić</span>
-    <span>Novi Sad, Serbia</span>
+    <!-- ===================== TRAKA ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Cafés</span><span>Restaurants</span><span>Gyms</span><span>Dental clinics</span>
+        <span>Rent-a-car</span><span>Beauty salons</span><span>Local shops</span><span>Kids' playrooms</span>
+        <span>Cafés</span><span>Restaurants</span><span>Gyms</span><span>Dental clinics</span>
+        <span>Rent-a-car</span><span>Beauty salons</span><span>Local shops</span><span>Kids' playrooms</span>
+      </div>
+    </div>
+
+    <!-- ===================== USLUGE (bento raspored) ===================== -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Services</p>
+          <h2>Everything you need to be <em>online</em>, explained simply.</h2>
+          <p class="section-sub">No tech talk. You tell me what your business needs, and I take care of the rest.</p>
+        </div>
+
+        <div class="bento">
+          <article class="tile tile-big spot reveal">
+            <span class="tile-tag">Most popular</span>
+            <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+            <h3>Business website</h3>
+            <p>A complete site for your business: who you are, what you offer, prices, gallery, location and contact. Everything a customer wants to know before they call.</p>
+            <div class="mini-pages" aria-hidden="true">
+              <span>Home</span><span>Menu / Prices</span><span>Gallery</span><span>Contact</span>
+            </div>
+          </article>
+
+          <article class="tile spot reveal">
+            <div class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></div>
+            <h3>Landing page</h3>
+            <p>One clean page that presents your business and turns visitors into calls and messages. A great place to start.</p>
+            <div class="mini-pages" aria-hidden="true"><span>📞 Call</span><span>💬 Message</span><span>📍 Find us</span></div>
+          </article>
+
+          <article class="tile spot reveal">
+            <div class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></svg></div>
+            <h3>Online booking</h3>
+            <p>Customers pick a service, day and time, or send a reservation request, straight from the website.</p>
+          </article>
+
+          <article class="tile tile-dark spot reveal">
+            <div class="tile-icon"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+            <h3>Mobile-first design</h3>
+            <p>Most customers find you on their phone, so every site is designed for small screens first.</p>
+            <span class="tile-note">Included in every site</span>
+          </article>
+
+          <article class="tile spot reveal">
+            <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+            <h3>Redesign &amp; updates</h3>
+            <p>Already have a website? I'll give it a fresh, modern look and keep your content up to date.</p>
+          </article>
+
+          <article class="tile tile-wide spot reveal">
+            <div class="tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+            <h3>Domain &amp; going live</h3>
+            <p>I help you get your own web address and put the site online, so you don't have to deal with the technical part.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ZA KOGA RADIŠ ===================== -->
+    <section class="section section-tint" id="industries">
+      <div class="wrap">
+        <div class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">Industries</p>
+            <h2>Built for <em>your</em> kind of business.</h2>
+          </div>
+          <p class="section-sub">Every business is different. Here's what I usually build for each one.</p>
+        </div>
+
+        <div class="industries">
+          <article class="ind spot reveal">
+            <span class="ind-emoji">☕</span>
+            <h3>Cafés &amp; restaurants</h3>
+            <ul><li>Menu with prices</li><li>Opening hours &amp; location</li><li>Table reservations</li></ul>
+          </article>
+          <article class="ind spot reveal">
+            <span class="ind-emoji">🏋️</span>
+            <h3>Gyms &amp; fitness</h3>
+            <ul><li>Memberships &amp; prices</li><li>Training schedule</li><li>Coach profiles</li></ul>
+          </article>
+          <article class="ind spot reveal">
+            <span class="ind-emoji">🦷</span>
+            <h3>Clinics &amp; studios</h3>
+            <ul><li>Clear price list</li><li>Online appointments</li><li>Team &amp; services</li></ul>
+          </article>
+          <article class="ind spot reveal">
+            <span class="ind-emoji">🚗</span>
+            <h3>Rent-a-car</h3>
+            <ul><li>Car fleet with prices</li><li>Booking requests</li><li>Pick-up locations</li></ul>
+          </article>
+          <article class="ind spot reveal">
+            <span class="ind-emoji">💇</span>
+            <h3>Salons &amp; beauty</h3>
+            <ul><li>Services &amp; prices</li><li>Photo gallery</li><li>Book an appointment</li></ul>
+          </article>
+          <article class="ind spot reveal">
+            <span class="ind-emoji">🛍️</span>
+            <h3>Shops &amp; local services</h3>
+            <ul><li>Products or services</li><li>Location on the map</li><li>Call &amp; message buttons</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ŠTA DOBIJA SVAKI KLIJENT ===================== -->
+    <section class="section" id="included">
+      <div class="wrap included">
+        <div class="included-text">
+          <p class="eyebrow">What you get</p>
+          <h2>Every website comes <em>ready to work</em> for you.</h2>
+          <p class="section-sub">Not just a nice look. Everything a customer needs to find you and get in touch is already there.</p>
+          <a href="#contact" class="btn btn-dark">Ask me anything <span class="arrow">→</span></a>
+        </div>
+
+        <ul class="included-list">
+          <li class="reveal"><span class="inc-num">01</span><div><strong>Works on every device</strong><p>Phone, tablet and computer, always sharp and easy to use.</p></div></li>
+          <li class="reveal"><span class="inc-num">02</span><div><strong>Call &amp; message buttons</strong><p>Customers can call you or send a message with one tap.</p></div></li>
+          <li class="reveal"><span class="inc-num">03</span><div><strong>Location on the map</strong><p>Your address and opening hours, easy to find.</p></div></li>
+          <li class="reveal"><span class="inc-num">04</span><div><strong>Your own web address</strong><p>Your site goes live with its own link, ready to share.</p></div></li>
+          <li class="reveal"><span class="inc-num">05</span><div><strong>Fast &amp; secure</strong><p>Quick to load and served over a secure connection.</p></div></li>
+          <li class="reveal"><span class="inc-num">06</span><div><strong>Help after launch</strong><p>Need to change a price or add photos? Just send me a message.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== PROCES ===================== -->
+    <section class="section section-dark" id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>From first message to <em>live website</em> in 4 steps.</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <h3>We talk</h3>
+            <p>You tell me about your business and what the website should do. A short call or a few messages is enough.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <h3>I design</h3>
+            <p>I show you a first version so you can see exactly how it looks before anything is final.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <h3>I build</h3>
+            <p>I build the full site and adjust it until you're happy with every page and every detail.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">04</span>
+            <h3>You go live</h3>
+            <p>Your website goes online with its own address, ready to share with your customers.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== ČESTA PITANJA ===================== -->
+    <section class="section" id="faq">
+      <div class="wrap faq-grid">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions clients <em>usually</em> ask.</h2>
+          <p class="section-sub">Something else on your mind? <a href="#contact" class="link">Just ask me.</a></p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>How much does a website cost?</summary>
+            <p>It depends on how big the site is and what it needs to do. Tell me about your business and I'll send you a clear quote, with no hidden costs.</p>
+          </details>
+          <details>
+            <summary>How long does it take?</summary>
+            <p>A simple landing page can be ready in a matter of days. Bigger sites with more pages or online booking take a bit longer, and I'll give you a timeline before we start.</p>
+          </details>
+          <details>
+            <summary>Do I need to know anything technical?</summary>
+            <p>Not at all. You just send me your information, photos and logo, and I take care of everything else, including putting the site online.</p>
+          </details>
+          <details>
+            <summary>Can I see the design before it's finished?</summary>
+            <p>Yes. You get a preview of the first version so you can tell me what to change before anything is final.</p>
+          </details>
+          <details>
+            <summary>What if I need changes later?</summary>
+            <p>No problem. New prices, photos or opening hours: send me a message and I'll update it for you.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== KONTAKT ===================== -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="cta spot">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-grid" aria-hidden="true"></div>
+          <p class="eyebrow eyebrow-light">Let's work together</p>
+          <h2>Ready to bring your business <em>online?</em></h2>
+          <p class="cta-sub">Send me a message about your business. I'll reply within 24 hours with ideas and a quote.</p>
+          <div class="cta-actions">
+            <a href="mailto:igor.popadic656@gmail.com" class="btn btn-accent btn-lg btn-shine">igor.popadic656@gmail.com <span class="arrow">→</span></a>
+            <button class="btn btn-ghost-light" id="copyBtn" data-email="igor.popadic656@gmail.com">Copy email</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark">IP</span>
+        <span class="logo-text">Igor Popadić</span>
+      </a>
+      <span class="footer-time"><span class="pulse"></span> Novi Sad · <span id="clock">--:--</span></span>
+      <span>© <span id="year"></span> Igor Popadić</span>
+    </div>
   </footer>
 
+  <!-- Mala obavijest (npr. "Email copied") -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script>
-    // Automatski upisuje trenutnu godinu u footer
-    document.getElementById("year").textContent = new Date().getFullYear();  </script>
+    // ===== Godina u footeru =====
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== Sat (vrijeme u Novom Sadu) u footeru =====
+    const clock = document.getElementById("clock");
+    const tick = () => clock.textContent = new Date().toLocaleTimeString("en-GB", {
+      hour: "2-digit", minute: "2-digit", timeZone: "Europe/Belgrade"
+    });
+    tick(); setInterval(tick, 30000);
+
+    // ===== Skrol: traka napretka + sjenka na meniju + aktivni link =====
+    const nav = document.getElementById("nav");
+    const progress = document.getElementById("progress");
+    const links = [...document.querySelectorAll(".nav-links a")];
+    const sections = links.map(a => document.querySelector(a.getAttribute("href")));
+    const onScroll = () => {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+      nav.classList.toggle("scrolled", y > 10);
+      let current = -1;
+      sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * 0.4) current = i; });
+      links.forEach((a, i) => a.classList.toggle("active", i === current));
+    };
+    onScroll();
+    addEventListener("scroll", onScroll, { passive: true });
+
+    // ===== Meni na telefonu =====
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const setMenu = open => {
+      document.body.classList.toggle("menu-open", open);
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      mobileMenu.setAttribute("aria-hidden", !open);
+    };
+    menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+    addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+
+    // ===== Naslovi sekcija: riječi izlaze jedna po jedna dok skroluješ =====
+    document.querySelectorAll("main h2").forEach(h => {
+      const words = [];
+      h.childNodes.forEach(n => {
+        if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(t => words.push(t.trim() ? `<span class="hw"><span>${t}</span></span>` : t));
+        else words.push(`<span class="hw"><span>${n.outerHTML}</span></span>`);
+      });
+      h.innerHTML = words.join("");
+      h.querySelectorAll(".hw > span").forEach((w, i) => w.style.transitionDelay = `${i * 0.06}s`);
+      h.classList.add("reveal", "h-reveal");
+    });
+
+    // ===== Elementi se pojavljuju dok skroluješ =====
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    // ===== Svjetlo koje prati miš na karticama =====
+    document.querySelectorAll(".spot").forEach(el => {
+      el.addEventListener("pointermove", e => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        el.style.setProperty("--my", `${e.clientY - r.top}px`);
+      });
+    });
+
+    // ===== Laptop i telefon se blago naginju za mišem =====
+    const visual = document.querySelector(".hero-visual");
+    if (matchMedia("(hover: hover)").matches) {
+      document.querySelector(".hero").addEventListener("pointermove", e => {
+        const x = e.clientX / innerWidth - 0.5, y = e.clientY / innerHeight - 0.5;
+        visual.style.setProperty("--rx", `${-y * 6}deg`);
+        visual.style.setProperty("--ry", `${x * 8}deg`);
+      });
+    }
+
+    // ===== Dugme "Copy email" + obavijest =====
+    const toast = document.getElementById("toast");
+    const showToast = msg => {
+      toast.textContent = msg; toast.classList.add("show");
+      clearTimeout(showToast.t); showToast.t = setTimeout(() => toast.classList.remove("show"), 2200);
+    };
+    document.getElementById("copyBtn").addEventListener("click", async e => {
+      try { await navigator.clipboard.writeText(e.currentTarget.dataset.email); showToast("✓ Email copied"); }
+      catch { showToast(e.currentTarget.dataset.email); }
+    });
+  </script>
 </body>
 </html>
